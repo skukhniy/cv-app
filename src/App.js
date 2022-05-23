@@ -1,9 +1,14 @@
+/* eslint-disable react/no-unused-state */
 import './App.css';
 import React from 'react';
+import GenInfo from './components/GenInfo';
 
 function App() {
   return (
-    <div>hi</div>
+    <div>
+      <div>App</div>
+      <GenInfo />
+    </div>
   );
 }
 
