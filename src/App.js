@@ -1,13 +1,21 @@
 /* eslint-disable react/no-unused-state */
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import GenInfo from './components/GenInfo';
+import Submit from './components/Submit';
 
 function App() {
+  const [info, setInfo] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+  });
   return (
     <div>
       <div>App</div>
-      <GenInfo />
+      <GenInfo info={info} setInfo={setInfo} />
+      <Submit />
     </div>
   );
 }
