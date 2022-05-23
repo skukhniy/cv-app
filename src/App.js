@@ -15,7 +15,7 @@ function App() {
     <div>
       <div>App</div>
       <GenInfo info={info} setInfo={setInfo} />
-      <Submit />
+      <Submit final={info} setInfo={setInfo} />
     </div>
   );
 }

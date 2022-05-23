@@ -1,9 +1,8 @@
 import React from 'react';
 
-export default function Submit({ info }) {
-  console.log(info);
+export default function Submit({ final }) {
   function submit() {
-    console.log(info);
+    console.log(final.firstName);
   }
   return (
     <div>
