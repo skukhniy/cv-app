@@ -8,9 +8,9 @@ export default function GenInfo({ info, setInfo }) {
   }
 
   return (
-    <div id="genInfoContainer">
+    <div className="InfoContainer">
       <h1 className="title">General Info</h1>
-      <div id="genInfo">
+      <div id="Info">
         <div id="firstName" className="genInfo">
           <p>First Name:</p>
           <input placeholder="First Name" name="firstName" onChange={handleChange} />
