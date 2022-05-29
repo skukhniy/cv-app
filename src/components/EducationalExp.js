@@ -1,13 +1,31 @@
 import React from 'react';
+import DeleteEduComp from './DeleteEduComp';
 
-export default function EducationalExp() {
+export default function EducationalExp({
+  id, educationIds, setEducationIds,
+}) {
+  // anytime an input changes, adjust the current eduObj
+  function handleChange(e) {
+    console.log(e.target.value);
+    const { name } = e.target;
+    const newEduObjs = [...educationIds];
+    const edu = newEduObjs.find((eduObj) => eduObj.id === id);
+    edu[name] = e.target.value;
+    console.log(newEduObjs);
+    setEducationIds(newEduObjs);
+  }
+  let deleteBtn;
+  if (id > 1) {
+    deleteBtn = <DeleteEduComp />;
+  }
+
   return (
-    <div className="InfoContainer" id="EducationalExpContainer">
-      <h1 className="title">Educational Experience</h1>
-      <div id="Info">
+    <div id="EducationalExpContainer">
+      {deleteBtn}
+      <div className="Info edu2">
         <div>
           <p>School Name:</p>
-          <input placeholder="School Name" name="schoolName" />
+          <input placeholder="School Name" name="schoolName" onChange={handleChange} />
         </div>
         <div>
           <p>Degree Title:</p>
@@ -15,11 +33,11 @@ export default function EducationalExp() {
         </div>
         <div>
           <p>From:</p>
-          <input name="dateFrom" />
+          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateFrom" />
         </div>
         <div>
           <p>To:</p>
-          <input name="dateTo" />
+          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateTo" />
         </div>
       </div>
     </div>

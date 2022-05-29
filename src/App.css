@@ -8,13 +8,33 @@ body{
   border: 3px solid black;
 }
 
-#Info {
+.Info {
   display: grid;
   grid-template-columns: repeat(2,50%);
   grid-template-rows: repeat(2,auto);
   justify-items: center;
   align-items: center;
+  padding-bottom: 20px;
 }
+.edu2{
+  border-bottom:1px solid black;
+}
+#allEduCompContainer{
+  padding-bottom: 0px;
+}
+.addBtnContainer{
+  display: flex;
+  justify-content: center;
+  padding-top:10px;
+  padding-bottom:10px;
+  
+}
+
+#eduAddBtn:hover {
+  background-color: white;
+}
+
+
 .title {
   width:100%;
   display: inline-block;
@@ -22,5 +42,22 @@ body{
 }
 .genInfo{
   display: block;
+
   
+}
+
+input[type=number]{
+  width: 139px;
+  height:15.500px;
+}
+
+#deleteBtnContainer{
+  padding-top:7px;
+  padding-right:7px;
+  position: relative;
+}
+#deleteBtn{
+  position: absolute;
+  right:10px;
+  bottom:-10;
 }
