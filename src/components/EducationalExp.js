@@ -16,7 +16,7 @@ export default function EducationalExp({
   }
   let deleteBtn;
   if (id > 1) {
-    deleteBtn = <DeleteEduComp />;
+    deleteBtn = <DeleteEduComp id={id} eduObjs={educationIds} setObjs={setEducationIds} />;
   }
 
   return (

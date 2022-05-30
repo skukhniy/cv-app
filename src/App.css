@@ -61,3 +61,6 @@ input[type=number]{
   right:10px;
   bottom:-10;
 }
+#deleteBtn:hover{
+  color: white;
+}
