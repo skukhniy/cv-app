@@ -23,6 +23,14 @@ function App() {
     dateFrom: '',
     dateTo: '',
   }]);
+  // set up exp State
+  const [expIds, setExpIds] = useState([{
+    id: 1,
+    coName: '',
+    title: '',
+    datefrom: '',
+    dateTo: '',
+  }]);
 
   // set up education exp obj Format
   const eduObj = (
@@ -33,10 +41,23 @@ function App() {
       dateFrom: '',
       dateTo: '',
     });
+  // set up exp obj format
+  const expObj = ({
+    id: (educationIds[educationIds.length - 1].id) + 1,
+    coName: '',
+    title: '',
+    datefrom: '',
+    dateTo: '',
+  });
 
   // add btn func for adding edu components
-  const handleClick = () => {
+  const handleClickEdu = () => {
     setEducationIds((prevEduIds) => [...prevEduIds, eduObj]);
+  };
+
+  // add btn func for exp comp
+  const handleClickExp = () => {
+    setEducationIds((prevExpIds) => [...prevExpIds, expObj]);
   };
 
   // renders all edu component windows
@@ -46,6 +67,16 @@ function App() {
       id={eduObjs.id}
       educationIds={educationIds}
       setEducationIds={setEducationIds}
+    />
+  ));
+
+  // renders all exp comp windows
+  const expComponents = expIds.map((expObjs) => (
+    <EducationalExp
+      key={expObjs.id}
+      id={expObjs.id}
+      expIds={expIds}
+      setExpIds={setExpIds}
     />
   ));
   console.log(educationIds[educationIds.length - 1]);
@@ -58,7 +89,12 @@ function App() {
         <h1 className="title">Educational</h1>
         {eduComponents}
         <div className="addBtnContainer">
-          <button id="eduAddBtn" type="button" onClick={handleClick}>Add</button>
+          <button id="eduAddBtn" type="button" onClick={handleClickEdu}>Add</button>
+        </div>
+        <h1 className="title">Work Experience</h1>
+        {expComponents}
+        <div className="addBtnContainer">
+          <button id="eduAddBtn" type="button" onClick={handleClickExp}>Add</button>
         </div>
       </div>
       <Submit final={info} />

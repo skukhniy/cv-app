@@ -1,24 +1,23 @@
 import React from 'react';
 import DeleteEduComp from './DeleteEduComp';
 
-export default function EducationalExp({
-  id, educationIds, setEducationIds,
+export default function Experience({
+  id, expIds, setExpIds,
 }) {
   // anytime an input changes, adjust the current eduObj
   function handleChange(e) {
     console.log(e.target.value);
     const { name } = e.target;
-    const newEduObjs = [...educationIds];
+    const newEduObjs = [...expIds];
     const edu = newEduObjs.find((eduObj) => eduObj.id === id);
     edu[name] = e.target.value;
     console.log(newEduObjs);
-    setEducationIds(newEduObjs);
+    setExpIds(newEduObjs);
   }
   let deleteBtn;
   if (id > 10) {
-    deleteBtn = <DeleteEduComp id={id} eduObjs={educationIds} setObjs={setEducationIds} />;
+    deleteBtn = <DeleteEduComp id={id} eduObjs={expIds} setObjs={setExpIds} />;
   }
-
   return (
     <div id="EducationalExpContainer">
       {deleteBtn}
