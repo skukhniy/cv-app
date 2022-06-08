@@ -8,11 +8,11 @@ export default function Experience({
   function handleChange(e) {
     console.log(e.target.value);
     const { name } = e.target;
-    const newEduObjs = [...expIds];
-    const edu = newEduObjs.find((eduObj) => eduObj.id === id);
-    edu[name] = e.target.value;
-    console.log(newEduObjs);
-    setExpIds(newEduObjs);
+    const newExpObjs = [...expIds];
+    const exp = newExpObjs.find((eduObj) => eduObj.id === id);
+    exp[name] = e.target.value;
+    console.log(newExpObjs);
+    setExpIds(newExpObjs);
   }
   let deleteBtn;
   if (id > 10) {
@@ -23,20 +23,20 @@ export default function Experience({
       {deleteBtn}
       <div className="Info edu2">
         <div>
-          <p>School Name:</p>
-          <input placeholder="School Name" name="schoolName" onChange={handleChange} />
+          <p>Company:</p>
+          <input placeholder="Company" name="coName" onChange={handleChange} />
         </div>
         <div>
-          <p>Degree Title:</p>
-          <input placeholder="Degree Title" name="degreeTitle" />
+          <p>Job Title:</p>
+          <input placeholder="Title" name="title" onChange={handleChange} />
         </div>
         <div>
           <p>From:</p>
-          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateFrom" />
+          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateFrom" onChange={handleChange} />
         </div>
         <div>
           <p>To:</p>
-          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateTo" />
+          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateTo" onChange={handleChange} />
         </div>
       </div>
     </div>

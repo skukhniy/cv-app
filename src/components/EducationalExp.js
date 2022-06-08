@@ -29,15 +29,15 @@ export default function EducationalExp({
         </div>
         <div>
           <p>Degree Title:</p>
-          <input placeholder="Degree Title" name="degreeTitle" />
+          <input placeholder="Degree Title" name="degreeTitle" onChange={handleChange} />
         </div>
         <div>
           <p>From:</p>
-          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateFrom" />
+          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateFrom" onChange={handleChange} />
         </div>
         <div>
           <p>To:</p>
-          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateTo" />
+          <input type="number" min="1900" max="2099" placeholder="YYYY" name="dateTo" onChange={handleChange} />
         </div>
       </div>
     </div>

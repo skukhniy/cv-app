@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import GenInfo from './components/GenInfo';
 import Submit from './components/Submit';
 import EducationalExp from './components/EducationalExp';
+import Experience from './components/Experience';
 
 function App() {
   // set up genInfo State
@@ -28,9 +29,11 @@ function App() {
     id: 1,
     coName: '',
     title: '',
-    datefrom: '',
+    dateFrom: '',
     dateTo: '',
   }]);
+  // setup Submit State
+  const [submitState, setSubmit] = useState([]);
 
   // set up education exp obj Format
   const eduObj = (
@@ -46,7 +49,7 @@ function App() {
     id: (educationIds[educationIds.length - 1].id) + 1,
     coName: '',
     title: '',
-    datefrom: '',
+    dateFrom: '',
     dateTo: '',
   });
 
@@ -57,7 +60,7 @@ function App() {
 
   // add btn func for exp comp
   const handleClickExp = () => {
-    setEducationIds((prevExpIds) => [...prevExpIds, expObj]);
+    setExpIds((prevExpIds) => [...prevExpIds, expObj]);
   };
 
   // renders all edu component windows
@@ -72,18 +75,16 @@ function App() {
 
   // renders all exp comp windows
   const expComponents = expIds.map((expObjs) => (
-    <EducationalExp
+    <Experience
       key={expObjs.id}
       id={expObjs.id}
       expIds={expIds}
       setExpIds={setExpIds}
     />
   ));
-  console.log(educationIds[educationIds.length - 1]);
 
   return (
     <div>
-      <div>App</div>
       <GenInfo info={info} setInfo={setInfo} />
       <div className="InfoContainer" id="allEduCompContainer">
         <h1 className="title">Educational</h1>
@@ -97,7 +98,13 @@ function App() {
           <button id="eduAddBtn" type="button" onClick={handleClickExp}>Add</button>
         </div>
       </div>
-      <Submit final={info} />
+      <Submit
+        final={info}
+        edu={educationIds}
+        exp={expIds}
+        subState={submitState}
+        setSub={setSubmit}
+      />
     </div>
   );
 }
